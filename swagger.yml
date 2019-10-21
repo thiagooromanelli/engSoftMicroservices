@@ -1,0 +1,241 @@
+swagger: "2.0"
+info:
+  description: Swagger file
+  version: "1.0.0"
+  title: Swagger ReST Users
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+paths:
+  /users:
+    get:
+      operationId: users.read_all
+      tags:
+        - Users
+      summary: Lista de Clientes
+      description: Lista de Clientes
+      responses:
+        200:
+          description: Sucesso na leitura de Clientes
+          schema:
+            type: array
+            items:
+              properties:
+                login:
+                  type: string
+                password:
+                  type: string
+                points:
+                  type: string
+                timestamp:
+                  type: string
+
+
+    post:
+      operationId: users.create
+      tags:
+        - Users
+      summary: Cria um usuario e adiciona na lista de Clientes
+      description: Adiciona na lista de Clientes
+      parameters:
+        - name: users
+          in: body
+          description: Pessoa a ser criada
+          required: True
+          schema:
+            type: object
+            properties:
+              login:
+                type: string
+                description: Login
+              password:
+                type: string
+                description: Password
+      responses:
+        201:
+          description: Sucesso ao criar usuario
+
+  /users/{login}:
+    get:
+      operationId: users.read_one
+      tags:
+        - Users
+      summary: Leitura de um usuario da lista de usuarios
+      description: Leitura de um usuario
+      parameters:
+        - name: login
+          in: path
+          description: Login
+          type: string
+          required: True
+      responses:
+        200:
+          description: Sucesso na leitura de um usuario
+          schema:
+            properties:
+              login:
+                type: string
+              password:
+                type: string
+              timestamp:
+                type: string
+
+    delete:
+      operationId: users.delete
+      tags:
+        - Users
+      summary: Deletar uma pessoa na lista de usuarios
+      description: Deleta uma pessoa
+      parameters:
+        - name: login
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Sucesso ao deletar
+
+  /users/{login}/pontos:
+    put:
+      operationId: users.update_points
+      tags:
+        - Users
+      summary: Atualizar pontos de um usuario da lista de usuarios
+      description: Update de um usuario
+      parameters:
+        - name: login
+          in: path
+          description: Login
+          type: string
+          required: True
+        - name: points_to_update
+          in: body
+          schema:
+            type: object
+            properties:
+              points_to_update:
+                type: integer
+      responses:
+        200:
+          description: Sucesso ao atualizar os pontos do usuario
+
+  /users/{login}/updatePassword:
+    put:
+      operationId: users.update_pwd
+      tags:
+        - Users
+      summary: Atualizar password de um usuario da lista de usuarios
+      description: Update de um usuario
+      parameters:
+        - name: login
+          in: path
+          description: Login
+          type: string
+          required: True
+        - name: new_pwd
+          in: body
+          schema:
+            type: object
+            properties:
+              new_pwd:
+                type: string
+      responses:
+        200:
+          description: Sucesso ao atualizar password
+
+  /products:
+    get:
+      operationId: products.read_all_products
+      tags:
+        - Products
+      summary: Lista de Produtos
+      description: Lista de Produtos
+      responses:
+        200:
+          description: Sucesso na leitura dos produtos
+          schema:
+            type: array
+            items:
+              properties:
+                product_name:
+                  type: string
+                product_type:
+                  type: string
+                points:
+                  type: integer
+                timestamp:
+                  type: string
+
+    post:
+      operationId: products.create_new_product
+      tags:
+        - Products
+      summary: Cria um usuario e adiciona na lista de Clientes
+      description: Adiciona na lista de Clientes
+      parameters:
+        - name: product
+          in: body
+          description: Pessoa a ser criada
+          required: True
+          schema:
+            type: object
+            properties:
+              product_name:
+                type: string
+                description: Nome do produto
+              product_type:
+                type: string
+                description: Tipo do produto
+              points:
+                type: integer
+                description: Pontos do produto
+      responses:
+        201:
+          description: Sucesso ao criar produto
+  
+  /products/{product_name}:
+    delete:
+      operationId: products.delete
+      tags:
+        - Products
+      summary: Deletar um produto na lista de produtos
+      description: Deleta um produto
+      parameters:
+        - name: product_name
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Sucesso ao deletar produto
+
+  /products/{product_name}/update:
+    put:
+      operationId: products.update_product
+      tags:
+        - Products
+      summary: Atualizacao de um produto
+      description: Atualizacao de um produto
+      parameters:
+        - name: product_name
+          in: path
+          description: Nome do produto
+          type: string
+          required: True
+        - name: points_to_update
+          in: body
+          schema:
+            type: object
+            properties:
+              points_to_update:
+                type: integer
+      responses:
+        200:
+          description: Sucesso na leitura de um usuario
+          
+
+
