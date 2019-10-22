@@ -40,6 +40,19 @@ def read_one(login):
         )
     return users
 
+def login(login, password):
+    PEOPLE = get_dict_from_mongodb()
+    if login in PEOPLE:
+        users = PEOPLE.get(login)
+        if users["password"] == password:
+            return make_response(
+                "Usuario autenticado com sucesso!".format(login=login), 200
+            )
+    else:
+        abort(
+            404, "Usuario nao autenticado.".format(login=login)
+        )
+
 
 def create(users):
     login = users.get("login", None)
