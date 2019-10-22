@@ -147,6 +147,28 @@ paths:
         200:
           description: Sucesso ao atualizar password
 
+  /users/{login}/{password}:
+    get:
+      operationId: users.login
+      tags:
+        - Users
+      summary: Login de usuarios
+      description: Login de um usuario
+      parameters:
+        - name: login
+          in: path
+          description: Login
+          type: string
+          required: True
+        - name: password
+          in: path
+          description: Password
+          type: string
+          required: True
+      responses:
+        200:
+          description: Sucesso na autenticacao de um usuario
+
   /products:
     get:
       operationId: products.read_all_products
