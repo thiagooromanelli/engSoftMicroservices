@@ -7,7 +7,7 @@ var userToken = 'saItBZA913NUx3FNPqkhxsJf1';
 var REDIRECT_URI = 'https://murillo-website/_callback/services/oauth2/success';				
 var data = 'client_secret='+client_secret+'&grant_type=password&client_id='+client_id+'&redirect_uri='+REDIRECT_URI+'&username='+username+'&password='+password+userToken;
 var token;
-
+/*
 $.ajax({
     url: proxy+'https://login.salesforce.com/services/oauth2/token',
     data: data,
@@ -25,32 +25,36 @@ $.ajax({
         
         console.log(e);
     }
-});
+});*/
 function efetuarLogin(){
 	//window.location="/Users/muril/Desktop/Tela%20de%20Login/Login_v8/inicial.html";
 
 $.ajax({
-    url: proxy + 'https://na114.salesforce.com/services/apexrest/SalesforceAPI/login',
-    data: JSON.stringify({										
+    //url: proxy + 'https://na114.salesforce.com/services/apexrest/SalesforceAPI/login',
+    url: 'http://0.0.0.0:5000/api/users/'+document.getElementById('usuario').value+'/'+document.getElementById('senha').value,
+    /*data: JSON.stringify({										
                             "username": document.getElementById('usuario').value,
                             "password": document.getElementById('senha').value							
-                            }),
+                            }),*/
     
-    type: 'POST',
-    beforeSend: function (xhr) {                        
+    type: 'GET',
+   /* beforeSend: function (xhr) {                        
         xhr.setRequestHeader('Authorization', 'Bearer ' + token);// + resp.access_token);
         xhr.setRequestHeader('Content-Type', 'application/json');
-    },
+    },*/
     success: function (resp) {
+        alert(resp);
         console.log(resp);
-        alert(resp.Message);
+        window.location="/inicial";
+        /*alert(resp.Message);
 		if(resp.Message.includes('invali')){
 		}else{
 			window.location="/Users/muril/Desktop/Tela%20de%20Login/Login_v8/inicial.html";
-		}
+		}*/
     },
     error: function (e) {
-        console.log(e);
+        alert(e.responseJSON.detail);
+        console.log(e.status);
     }
 });
 }
