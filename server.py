@@ -7,9 +7,22 @@ app = connexion.App(__name__, specification_dir='./')
 app.add_api('swagger.yml')
 CORS(app.app,resources=r'/api/*',methods=['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'])
 
+
 @app.route('/')
 def home():
-    return render_template('login.html')
+    return render_template('/AdminLTE-master/pages/examples/login.html')
+
+
+@app.route('/registrar')
+def registrar():
+    return render_template('/AdminLTE-master/pages/examples/register.html')
+
+
+@app.route('/principal')
+def principal():
+    
+    return render_template('/AdminLTE-master/index.html')
+    #return render_template('login.html')
 
 @app.route('/inicial')
 def inicial():
