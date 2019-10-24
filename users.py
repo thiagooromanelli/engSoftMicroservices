@@ -54,7 +54,7 @@ def login(login, password):
             )
     else:
         abort(
-            404, "Usuario nao autenticado.".format(login=login)
+            401, "Usuario nao autenticado.".format(login=login)
         )
 
 def create(users):

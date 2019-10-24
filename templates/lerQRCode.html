@@ -25,7 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
 <!--===============================================================================================-->
 </head>
-<body>
+<body onload="buscarPontos()">
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#57b846!important">
   <a class="navbar-brand" href="/inicial">Chronis</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
@@ -46,19 +46,19 @@
     </ul>
   </div>
 </nav>
-<h2 style="padding:25px"> Seus pontos: 10000 </h2>
+<h2 style="padding:25px" > Seus pontos: <b id="pontos">  </b> </h2>
 
 <div>
 	
 		<img src="https://cdn0.iconfinder.com/data/icons/material-style/48/qrcode-512.png" class="card-img-top" alt="qrCode">
 	
 	<div class="wrap-input100 validate-input" data-validate = "Please enter password">
-						<input class="input100" id="senha" type="number" name="pass" placeholder="Quantidade de Pontos">
+						<input class="input100" id="pontosAdd" type="number" name="pontosAdicionar" placeholder="Quantidade de Pontos">
 						<span class="focus-input100"></span>
 					</div>
 					<br/>					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" onclick="addPontos()">
+						<button class="login100-form-btn" onclick="inserirPontos()">
 							Adicionar Pontos
 						</button>
 					</div>
