@@ -33,6 +33,7 @@ def read_all_products():
 def create_new_product(product):
     product_name = product.get("product_name", None)
     product_type = product.get("product_type", None)
+    product_photo_link = product.get("product_photo_link", None)
     points = product.get("points", None)
     PRODUCTS = get_dict_from_mongodb()
     if product_name not in PRODUCTS and product_name is not None:
@@ -40,6 +41,7 @@ def create_new_product(product):
             "product_name": product_name,
             "product_type": product_type,
             "points": points,
+            "product_photo_link":product_photo_link,
             "timestamp": get_timestamp(),
         }
         db.products.insert_one(item)
@@ -52,7 +54,7 @@ def create_new_product(product):
             "Produto ja existente"
         )
 
-def update_product(product_name, points_to_update):
+def update_points(product_name, points_to_update):
     query = { "product_name": product_name }
     update = { "$set": {
             "points": points_to_update.get("points_to_update"),

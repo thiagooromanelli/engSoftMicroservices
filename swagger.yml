@@ -30,6 +30,8 @@ paths:
                 password:
                   type: string
                 points:
+                  type: integer
+                photo_link:
                   type: string
                 timestamp:
                   type: string
@@ -55,6 +57,9 @@ paths:
               password:
                 type: string
                 description: Password
+              photo_link:
+                type: string
+                description: Foto
       responses:
         201:
           description: Sucesso ao criar usuario
@@ -80,6 +85,10 @@ paths:
               login:
                 type: string
               password:
+                type: string
+              points:
+                type: integer
+              photo_link:
                 type: string
               timestamp:
                 type: string
@@ -187,6 +196,8 @@ paths:
                   type: string
                 product_type:
                   type: string
+                product_photo_link:
+                  type: string
                 points:
                   type: integer
                 timestamp:
@@ -212,6 +223,9 @@ paths:
               product_type:
                 type: string
                 description: Tipo do produto
+              product_photo_link:
+                type: string
+                description: Link da foto do produto
               points:
                 type: integer
                 description: Pontos do produto
@@ -235,9 +249,9 @@ paths:
         200:
           description: Sucesso ao deletar produto
 
-  /products/{product_name}/update:
+  /products/{product_name}/updatePoints:
     put:
-      operationId: products.update_product
+      operationId: products.update_points
       tags:
         - Products
       summary: Atualizacao de um produto
@@ -258,6 +272,8 @@ paths:
       responses:
         200:
           description: Sucesso na leitura de um usuario
+  
+
           
 
 

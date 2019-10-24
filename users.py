@@ -48,21 +48,26 @@ def login(login, password):
             return make_response(
                 "Usuario autenticado com sucesso!".format(login=login), 200
             )
+        else:
+            abort(
+                404, "Usuario nao autenticado.".format(login=login)
+            )
     else:
         abort(
             404, "Usuario nao autenticado.".format(login=login)
         )
 
-
 def create(users):
     login = users.get("login", None)
     password = users.get("password", None)
+    photo_link = users.get("photo_link", None)
     PEOPLE = get_dict_from_mongodb()
     if login not in PEOPLE and login is not None and password not in PEOPLE:
         item = {
             "login": login,
             "password": password,
             "points": 0,
+            "photo_link": photo_link,
             "timestamp": get_timestamp(),
         }
         db.usuarios.insert_one(item)
