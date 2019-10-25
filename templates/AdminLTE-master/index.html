@@ -112,10 +112,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="static/dist/img/persona.png" class="img-circle" alt="User Image">
+          <img src="#" id="usuarioImagem" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p id="usuarioNome"></p>
         </div>
       </div>
       <!-- /.search form -->
@@ -134,7 +134,7 @@
             <i class="fa fa-qrcode"></i> <span>Adicionar Pontos</span>
           </a>
         </li>
-        <li class="treeview">
+        <li >
           <a href="/estabelecimentos">
             <i class="fa fa-map"></i> <span>Estabelecimentos</span>
             <span class="pull-right-container">
@@ -166,35 +166,8 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-8 col-xs-15">
-          <!-- small box -->
-          <div class="row">
-            <div class="col-lg-6 col-xs-15">
-              <!-- small box -->
-              <div class="small-box bg-green">
-                <div class="inner">
-                    <p>Almoço</p>
-                    <img src="static/dist/img/almoco.jpg" class="card-img-top" alt="almoco" width=”100” height= "100"/>
-                  <p>Para o almoço é necessário 500 Pontos</p>
-                </div>
-              </div>
-            </div>
-        <div class="col-lg-8 col-xs-15">
-          <!-- small box -->
-          <div class="row">
-            <div class="col-lg-9 col-xs-15">
-              <!-- small box -->
-              <div class="small-box bg-green">
-                <div class="inner">
-                    <p>Sobremesa</p>
-                    <img src="static/dist/img/sobremesa.jpg" class="card-img-top" alt="sobremesa" width=”100” height= "100"/>
-                  <p>Você já pode pegar uma sobremesa</p>
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
-      <!-- /.row -->
+       <div id="listaProdutos"></div>
+        
 
     </section>
     <!-- /.content -->

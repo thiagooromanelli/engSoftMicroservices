@@ -29,6 +29,16 @@ def inicial():
     return render_template('inicial.html')
 
 
+@app.route('/estabelecimentos')
+def estabelecimentos():
+    return render_template('/AdminLTE-master/estabelecimentos.html')
+
+
+@app.route('/pontos')
+def pontos():
+    return render_template('/AdminLTE-master/pontos.html')
+
+
 @app.route('/lerQRCode')
 def lerQRcode():
     return render_template('lerQRCode.html')
