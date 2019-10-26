@@ -88,7 +88,7 @@ body {
 }
 .content-wrapper {
   min-height: calc(100vh - 101px);
-  background-color: #ecf0f5;
+  background-color: #ebe9e9;
   z-index: 800;
 }
 @media (max-width: 767px) {
@@ -3303,10 +3303,11 @@ table.text-center th {
 .register-logo a {
   color: #444;
 }
+
 .login-page,
 .register-page {
   height: auto;
-  background: #d2d6de;
+  background: #f1a80b;
 }
 .login-box,
 .register-box {
@@ -5001,10 +5002,16 @@ fieldset[disabled] .btn-yahoo.focus {
 }
 .bg-gray {
   color: #000;
-  background-color: #d2d6de !important;
+  background-color: #bfc3ca !important;
+}
+.bg-gray-2 {
+  color: rgb(54, 54, 54);
+  background-color: #bfc3ca !important;
 }
 .bg-gray-light {
-  background-color: #f7f7f7;
+  /* background-color: #f7f7f7; */
+  color: rgb(54, 54, 54);
+  background-color: #bfc3ca !important;
 }
 .bg-black {
   background-color: #111 !important;
@@ -5047,7 +5054,7 @@ fieldset[disabled] .btn-yahoo.focus {
   background-color: #00a65a !important;
 }
 .bg-navy {
-  background-color: #001F3F !important;
+  background-color: rgb(0, 45, 90) !important;
 }
 .bg-teal {
   background-color: #39CCCC !important;
@@ -5074,6 +5081,10 @@ fieldset[disabled] .btn-yahoo.focus {
   color: #000;
   background-color: #b5bbc8 !important;
 }
+.bg-gray2-active {
+  color: #000;
+  background-color: #b5bbc8 !important;
+}
 .bg-black-active {
   background-color: #000000 !important;
 }
@@ -5085,7 +5096,7 @@ fieldset[disabled] .btn-yahoo.focus {
 .bg-yellow-active,
 .modal-warning .modal-header,
 .modal-warning .modal-footer {
-  background-color: #db8b0b !important;
+  background-color: #be7705 !important;
 }
 .bg-aqua-active,
 .modal-info .modal-header,

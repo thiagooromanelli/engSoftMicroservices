@@ -38,7 +38,7 @@ function buscarPontos(){
                 resp.points = 0;
             }    
             document.getElementById("pontos").innerHTML = resp.points;
-            document.getElementById("usuarioNome").innerHTML = localStorage.usuarioLogado;
+            document.getElementById("usuarioNome").innerHTML = resp.fullname;
             
             document.getElementById("usuarioImagem").src=''+resp.photo_link;
 
@@ -63,11 +63,11 @@ function buscarPontos(){
                 '<div class="row">'+
                   '<div class="col-lg-6 col-xs-15">'+
               
-                    '<div class="small-box bg-green">'+
+                    '<div class="small-box bg-gray-light">'+
                       '<div class="inner">'+
-                          '<p>'+resp[i].product_name+'</p>'+
-                          '<img src="'+resp[i].product_photo_link+'" class="card-img-top" alt="almoco" width=”100” height= "100"/>'+
-                        '<p onclick="inserirPontos('+-resp[i].points+')">Para o almoço é necessário '+resp[i].points+' Pontos</p>'+
+                          '<h4>'+resp[i].product_name+'</h4>'+
+                          '<img src="'+resp[i].product_photo_link+'" class="card-img-top" alt="almoco" width=”100” height= "100" style="border-radius: 7px;"/>'+
+                        '<br><br><p onclick="inserirPontos('+-resp[i].points+')">Para o almoço é necessário '+resp[i].points+' Pontos</p>'+
                       '</div>'+
                    '</div>'+
                   '</div>';
@@ -123,10 +123,12 @@ console.log(e.status);
 
 function cadastrar(){
 var usuario = document.getElementById("usuario").value;
+var fullname = document.getElementById("fullname").value;
 var senha = document.getElementById("senha").value;
 var senha2 = document.getElementById("senha2").value;
 var linkImagem = document.getElementById('linkImagem').value;
 console.log("Usuario: "+usuario);
+console.log("Fullname: "+fullname);
 console.log("senha: "+senha);
 console.log("senha2: "+senha2);
 console.log("linkImagem: "+linkImagem);
@@ -139,7 +141,8 @@ return;
 $.ajax({            
 url: 'http://0.0.0.0:5000/api/users',                    
         
-data: JSON.stringify({										                    
+data: JSON.stringify({		
+        "fullname": ""+fullname,								                    
         "login": ""+usuario,
         "password": ""+senha,
         "photo_link": linkImagem                 						

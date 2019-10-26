@@ -9,7 +9,7 @@ services:
     restart: on-failure
 
   ms:
-    image: ms:latest
+    image: thiagoromanelli/ms:latest
     container_name: ms
     network_mode: "host"
     ports:

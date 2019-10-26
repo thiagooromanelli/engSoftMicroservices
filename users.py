@@ -61,9 +61,11 @@ def create(users):
     login = users.get("login", None)
     password = users.get("password", None)
     photo_link = users.get("photo_link", None)
+    fullname = users.get("fullname", None)
     PEOPLE = get_dict_from_mongodb()
     if login not in PEOPLE and login is not None and password not in PEOPLE:
         item = {
+            "fullname": fullname,
             "login": login,
             "password": password,
             "points": 0,
